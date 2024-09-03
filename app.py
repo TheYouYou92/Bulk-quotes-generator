@@ -78,7 +78,7 @@ COLOR_PALETTES = {
 def download_font(url, font_path):
     """Download a font file if it doesn't exist locally."""
     if not os.path.exists(font_path):
-        response = requests.get(url)
+        response = requests.get(url, timeout=60)
         response.raise_for_status()
         with open(font_path, 'wb') as f:
             f.write(response.content)
@@ -96,7 +96,7 @@ def get_images(query, count):
     url = f"https://pixabay.com/api/?key={PIXABAY_API_KEY}&q={encoded_query}&image_type=photo&per_page=100"
     
     try:
-        response = requests.get(url)
+        response = requests.get(url, timeout=60)
         response.raise_for_status()
         data = response.json()
         hits = data.get('hits', [])
@@ -124,7 +124,7 @@ def get_image(image_data):
         image_url = image_data.get('webformatURL')
         if not image_url:
             return None
-        image_response = requests.get(image_url)
+        image_response = requests.get(image_url, timeout=60)
         image_response.raise_for_status()
         return Image.open(BytesIO(image_response.content))
     except requests.RequestException as e:
@@ -136,7 +136,7 @@ def get_single_quote(topic):
     base_url = f'https://api.api-ninjas.com/v1/quotes?category={topic}'
     
     try:
-        response = requests.get(base_url, headers={'X-Api-Key': QUOTE_API_KEY})
+        response = requests.get(base_url, headers={'X-Api-Key': QUOTE_API_KEY}, timeout=60)
         response.raise_for_status()
         data = response.json()
         if data:
