@@ -1,0 +1,12 @@
+<div id="flash-messages" class="fixed top-0 left-0 right-0 z-50">
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }} bg-{{ category }}-100 border-l-4 border-{{ category }}-500 text-{{ category }}-700 p-4 mb-2" role="alert">
+          <p class="font-bold">{{ category.capitalize() }}</p>
+          <p>{{ message }}</p>
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+</div>

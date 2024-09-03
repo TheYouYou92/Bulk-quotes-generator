@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artistic Quote Image Generator - Create Stunning Visual Quotes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body class="bg-gradient-to-br from-purple-100 to-indigo-200 min-h-screen font-sans">
+    {% include 'flash_messages.html' %}
+    <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="text-2xl font-bold text-indigo-600">QuoteArt</div>
+            <div>
+                <a href="/login" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition duration-300">Login</a>
+                <a href="/register" class="ml-4 text-indigo-600 hover:text-indigo-800 transition duration-300">Sign Up</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        <section class="text-center mb-16">
+            <h1 class="text-5xl font-bold text-indigo-900 mb-6">Transform Words into Visual Art</h1>
+            <p class="text-xl text-gray-700 mb-8">Create stunning, shareable quote images for social media in seconds</p>
+            <a href="/register" class="bg-indigo-600 text-white px-8 py-3 rounded-full text-lg hover:bg-indigo-700 transition duration-300 inline-block">Get Started for Free</a>
+        </section>
+
+        <section class="grid md:grid-cols-3 gap-8 mb-16">
+            <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                <i class="fas fa-magic text-4xl text-indigo-600 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">AI-Powered Design</h3>
+                <p class="text-gray-600">Our AI creates beautiful layouts tailored to your chosen quotes and themes</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                <i class="fas fa-share-alt text-4xl text-indigo-600 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">One-Click Sharing</h3>
+                <p class="text-gray-600">Share your creations directly to social media platforms with a single click</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                <i class="fas fa-palette text-4xl text-indigo-600 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">Customizable Styles</h3>
+                <p class="text-gray-600">Choose from a variety of fonts, color palettes, and image styles to match your brand</p>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-lg shadow-lg p-8 mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8">How It Works</h2>
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="text-center">
+                    <div class="bg-indigo-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-indigo-600">1</span>
+                    </div>
+                    <p class="text-gray-700">Choose a quote or enter your own</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-indigo-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-indigo-600">2</span>
+                    </div>
+                    <p class="text-gray-700">Select your preferred style and format</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-indigo-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-indigo-600">3</span>
+                    </div>
+                    <p class="text-gray-700">Generate your quote image</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-indigo-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-indigo-600">4</span>
+                    </div>
+                    <p class="text-gray-700">Share or download your creation</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="text-center mb-16">
+            <h2 class="text-3xl font-bold mb-6">Ready to Create Eye-Catching Quote Images?</h2>
+            <a href="/register" class="bg-indigo-600 text-white px-8 py-3 rounded-full text-lg hover:bg-indigo-700 transition duration-300 inline-block">Sign Up Now - It's Free!</a>
+        </section>
+    </main>
+
+    <footer class="bg-indigo-900 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 Artistic Quote Image Generator. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
