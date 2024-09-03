@@ -7,6 +7,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
+    <style>
+    .alert {
+        opacity: 1;
+        transition: opacity 0.3s ease-in-out;
+    }
+</style>
 <body class="bg-gradient-to-br from-purple-100 to-indigo-200 min-h-screen font-sans">
     {% include 'flash_messages.html' %}
     <header class="bg-white shadow-md">
@@ -79,7 +85,50 @@
             <a href="/register" class="bg-indigo-600 text-white px-8 py-3 rounded-full text-lg hover:bg-indigo-700 transition duration-300 inline-block">Sign Up Now - It's Free!</a>
         </section>
     </main>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    function removeFlashMessage(element) {
+        element.style.opacity = '0';
+        setTimeout(function() {
+            element.remove();
+        }, 300); // Wait for fade out animation to complete
+    }
 
+    function handleFlashMessages() {
+        var flashMessages = document.querySelectorAll('#flash-messages .alert');
+        flashMessages.forEach(function(message) {
+            // Set initial opacity and add transition
+            message.style.opacity = '1';
+            message.style.transition = 'opacity 0.3s ease-in-out';
+
+            // Set timeout to remove message
+            setTimeout(function() {
+                removeFlashMessage(message);
+            }, 5000); // 5 seconds
+
+            // Add click event to dismiss message immediately
+            message.addEventListener('click', function() {
+                removeFlashMessage(message);
+            });
+        });
+    }
+
+    // Handle existing flash messages
+    handleFlashMessages();
+
+    // Create a MutationObserver to watch for new flash messages
+    var flashContainer = document.getElementById('flash-messages');
+    var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.type === 'childList') {
+                handleFlashMessages();
+            }
+        });
+    });
+
+    observer.observe(flashContainer, { childList: true });
+});
+</script>
     <footer class="bg-indigo-900 text-white py-8">
         <div class="container mx-auto px-6 text-center">
             <p>&copy; 2024 Artistic Quote Image Generator. All rights reserved.</p>
