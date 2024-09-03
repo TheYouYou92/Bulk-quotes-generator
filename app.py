@@ -267,7 +267,7 @@ def register():
 def logout():
     logout_user()
     flash('You have been logged out.', 'info')
-    return redirect('landing.html')
+    return redirect(url_for('landing.html'))
 
 @app.route('/dashboard')
 @login_required
