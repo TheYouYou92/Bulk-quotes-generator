@@ -7,6 +7,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
+    <style>
+    .alert {
+        opacity: 1;
+        transition: opacity 0.3s ease-in-out;
+    }
+</style>
 <body class="bg-gradient-to-br from-purple-100 to-indigo-200 min-h-screen font-sans">
     {% include 'flash_messages.html' %}
     <header class="bg-white shadow-md">
@@ -84,6 +90,7 @@
             <a href="/register" class="bg-indigo-600 text-white px-8 py-3 rounded-full text-lg hover:bg-indigo-700 transition duration-300 inline-block">Sign Up Now - It's Free!</a>
         </section>
     </main>
+<<<<<<< HEAD
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             function removeFlashMessage(element) {
