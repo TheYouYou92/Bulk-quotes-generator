@@ -364,6 +364,6 @@ def init_db():
         db.create_all()
         print("Database initialized.")
 
-#if __name__ == '__main__':
-#   init_db()  # Initialize the database before running the app
-#    app.run(debug=True)
+if __name__ == '__main__':
+    init_db()  # Initialize the database before running the app
+    app.run()
