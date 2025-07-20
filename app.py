@@ -10,7 +10,7 @@ import textwrap
 from io import BytesIO
 from PIL import Image, ImageDraw, ImageFont
 from urllib.parse import quote
-import random
+import secrets
 
 
 app = Flask(__name__)
@@ -99,7 +99,7 @@ def get_images(query, count):
         response.raise_for_status()
         data = response.json()
         hits = data.get('hits', [])
-        return random.sample(hits, min(count, len(hits)))
+        return secrets.SystemRandom().sample(hits, min(count, len(hits)))
     except requests.RequestException as e:
         print(f"Error fetching images: {e}")
         return []
@@ -156,8 +156,8 @@ def create_quote_image(quote, author, image_data, dimensions, watermark, font_st
     
     # Choose colors from the selected palette
     colors = COLOR_PALETTES[color_palette]
-    text_color = random.choice(colors)
-    shadow_color = random.choice([c for c in colors if c != text_color])
+    text_color = secrets.choice(colors)
+    shadow_color = secrets.choice([c for c in colors if c != text_color])
     
     # Adjust font sizes based on image dimensions
     base_size = min(dimensions) // 15
